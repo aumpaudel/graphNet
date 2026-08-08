@@ -5,6 +5,7 @@
 #include <map>
 #include <string>
 #include <vector>
+#include <utility>
 
 class Graph{
     private:
@@ -19,6 +20,7 @@ class Graph{
         void printGraph();
         std::vector<int> bfs(int start);
         std::vector<int> dfs(int start);
+        std::pair<vector<int>,int> shortestPath(int start, int end);
 };
 
 #endif
