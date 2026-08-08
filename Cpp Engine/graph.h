@@ -4,6 +4,7 @@
 #include <set>
 #include <map>
 #include <string>
+#include <vector>
 
 class Graph{
     private:
@@ -16,6 +17,8 @@ class Graph{
         void addFriend(int userId1, int userId2);
         void removeFriend(int userId1,int userId2);
         void printGraph();
+        std::vector<int> bfs(int start);
+        std::vector<int> dfs(int start);
 };
 
 #endif
