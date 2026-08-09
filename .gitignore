@@ -45,3 +45,6 @@ dist/
 # Temporary Files
 *.tmp
 *.temp
+
+#compiled file
+graph_test
