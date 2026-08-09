@@ -5,26 +5,30 @@ using namespace std;
 bool Graph::exist(int userId){
     return nameOfUser.find(userId)!=nameOfUser.end();
 }
-void Graph::addUser(int userId,string userName){
-    if(exist(userId)) return;
+bool Graph::addUser(int userId,string userName){
+    if(exist(userId)) return false;
     nameOfUser[userId] = userName;
     adjList[userId];
+    return true;
 }
-void Graph::removeUser(int userId){
-    if(!exist(userId)) return;
+bool Graph::removeUser(int userId){
+    if(!exist(userId)) return false;
     nameOfUser.erase(userId);
     for(auto id:adjList[userId]) adjList[id].erase(userId);
     adjList.erase(userId);
+    return true;
 }
-void Graph::addFriend(int userId1, int userId2){
-    if(!exist(userId1) || !exist(userId2)) return;
+bool Graph::addFriend(int userId1, int userId2){
+    if(!exist(userId1) || !exist(userId2) || userId1==userId2 || adjList[userId1].find(userId2)!=adjList[userId1].end()) return false;
     adjList[userId1].insert(userId2);
     adjList[userId2].insert(userId1);
+    return true;
 }
-void Graph::removeFriend(int userId1,int userId2){
-    if(!exist(userId1) || !exist(userId2)) return;
+bool Graph::removeFriend(int userId1,int userId2){
+    if(!exist(userId1) || !exist(userId2) || userId1==userId2) return false;
     adjList[userId1].erase(userId2);
     adjList[userId2].erase(userId1);
+    return true;
 }
 void Graph::printGraph(){
     for(auto& it:adjList){
