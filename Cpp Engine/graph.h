@@ -13,8 +13,8 @@ class Graph{
         std::map<int,std::string> nameOfUser;
     public:
         //graph
-        std::map<int,std::string> getAllUsers();
-        std::vector<std::pair<int,int>> getAllFriendships();
+        std::map<int,std::string> getAllUsers() const;
+        std::vector<std::pair<int,int>> getAllFriendships() const;
         bool exist(int userId);
         bool addUser(int userId,std::string userName);
         bool removeUser(int userId);
