@@ -7,9 +7,9 @@ class Database{
     private:
         mysqlx::Session* session;
     public:
-        Database();
+        Database(string host,string user,string password,string dbname,int port);
         ~Database();
-        bool connect(std::string host,std::string user,std::string password,std::string dbname, int port);
+        mysqlx::Session* connect(std::string host,std::string user,std::string password,std::string dbname, int port);
         void disconnect();
 };
 
