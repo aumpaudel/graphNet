@@ -10,6 +10,8 @@ class Database{
         Database(string host,string user,string password,string dbname,int port);
         ~Database();
         mysqlx::Session* connect(std::string host,std::string user,std::string password,std::string dbname, int port);
+        void fetchData();
+        void ubdateData();
         void disconnect();
 };
 
